@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+string InvertirTexto(string str);
+string ArmarFrase(string frase);
+
+int main() {
+    string texto;
+    cout << "Ingresa un texto: ";
+    getline(cin, texto);
+    cout << "Texto al revés: " << InvertirTexto << endl;
+    cout << "Texto sin paréntesis: " << ArmarFrase << endl;
+
+    return 0;
+}
+ string InvertirTexto(string str) {
+    string resultado;
+    string parte;
+    string Invertir;
+    bool AdentroDeParentesis = false;
+
+    for (int i = 0; i < str.size(); ++i) {
+        if (str[i] == '(') {
+            AdentroDeParentesis = true;
+            resultado += parte;
+            parte = "";
+        }
+        else if (str[i] == ')') {
+            AdentroDeParentesis = false;
+            
+            for (int i = parte.size() - 1; i >= 0; --i) {
+                Invertir += parte[i];
+            }
+            resultado += Invertir;
+            parte = "";
+        }
+        
+    }
+    resultado += parte;
+
+    return resultado;
+}
+
+string ArmarFrase(string frase) {
+    string resultado;
+
+    for (int i = 0; i < frase.size(); ++i) {
+        if (frase[i] != '(' && frase[i] != ')') {
+            resultado += frase[i];
+        }
+    }
+
+    return resultado;
+}

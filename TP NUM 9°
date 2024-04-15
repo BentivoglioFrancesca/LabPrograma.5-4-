@@ -1,22 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
-string InvertirPalabra(string palabra);
+string InvertirPalabra(string palabra,int inicio,int final);
 
 int main() {
     string palabra;
-    cout << "Ingrese una palabra: ";
+    int final=-1;
+    int inicio;
+    cout << "Ingrese una palabra o frase: ";
     getline (cin, palabra);
-
-    string palabraInvertida=InvertirPalabra(palabra);
-    cout << "Palabra invertida: "<<palabraInvertida <<endl;
+    
+    cout<<"ingresa el inicio : "<<endl;
+    cin>>inicio;
+    cout<<"ingresa el final: "<<endl;
+    cin>>final;
+    
+    cout << "Palabra invertida: "<<InvertirPalabra(palabra,inicio,final)<<endl;
 
     return 0;
 }
 
-string InvertirPalabra(string palabra) {
-    int longitud = palabra.size();
-    for (int i = 0; i < longitud / 2; i++) {
-    swap(palabra[i], palabra[longitud - i - 1]);
+string InvertirPalabra(string palabra,int inicio,int final) {
+int i;
+int auxiliar;
+
+for (i=inicio; i<=(inicio + final)/2; i++) { 
+        auxiliar=palabra[i];
+        palabra[i]=palabra[final-i+inicio]; 
+        palabra[final-i+inicio]=auxiliar;
     }
     return palabra;
 }

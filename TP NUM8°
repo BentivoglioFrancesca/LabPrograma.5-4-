@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+string CaracterRepetido (string texto);
+
+int main() {
+    string texto;
+    cout << "Ingresa una frase: ";
+    getline(cin, texto);
+
+    cout<<"Quedaria asi: " <<CaracterRepetido(texto)<<endl;
+
+    return 0;
+}
+
+string CaracterRepetido (string texto) {
+    string frase;
+    int contador = 0;
+
+    for (int i = 1; i < texto.size(); i++) {
+            if (contador > 1) {
+                frase += '{' + contador + '}';
+            }
+            texto[0] = texto[i];
+            contador = 1;
+    }
+    return frase;
+}

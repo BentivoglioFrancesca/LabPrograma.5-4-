@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+string FuncionLol(int n, int m);
+
+int main() {
+    int n, m;
+    cout<<"Ingresa el número de filas: "<<endl;
+    cin>> n;
+    cout<<"Ingresa el número de columnas: "<<endl;
+    cin>> m;
+
+    cout<< "Las filas son: "<<n<< "Las columnas son: "<<m<<endl;
+cout<<"Resultado:  "<<FuncionLol(n, m)<<endl;
+}
+
+string FuncionLol(int n, int m){
+string resultado;
+    for (int i = 0; i < n; ++i) {
+        for (int e = 0; e < m; ++e) {
+            if ((i + e) % 2 == 0) {
+                resultado+="L";
+            } else {
+                resultado+= "O";
+            }
+        }
+        
+    }
+cout<<endl;
+    return resultado;
+}

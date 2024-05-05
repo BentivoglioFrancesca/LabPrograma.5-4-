@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool CantidadDePalabras(string frase);
+
+int main() {
+    string frase; 
+    cout << "Ingresa una frase entre 5 y 20: ";
+    getline(cin, frase);
+
+cout<<CantidadDePalabras(frase)<<endl;
+
+    return 0;
+}
+
+bool CantidadDePalabras(string frase) {
+    int cuentaPalabras = 0;
+    bool enPalabra = false;
+
+
+    for (int i = 0; i <= frase.length(); i++) {
+        
+        if (i == frase.length() || frase[i] == ' ') {
+            if (enPalabra) {
+                enPalabra = false; 
+                cout << endl;
+            }
+        } else {
+            if (!enPalabra) {
+                enPalabra = true;
+                cuentaPalabras++;
+                cout << "P" << cuentaPalabras << " "; 
+            }
+            cout << frase[i];
+        }
+    }
+
+    return true; 
+}
